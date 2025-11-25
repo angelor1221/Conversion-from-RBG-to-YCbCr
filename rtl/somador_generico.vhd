@@ -16,4 +16,5 @@ end somador_generico;
 architecture rtl of somador_generico is
 begin
     r <= std_logic_vector(signed(x) + signed(y));
+
 end rtl;
