@@ -5,7 +5,7 @@ use ieee.numeric_std.all;
 entity somador_tb is
 end somador_tb;
 
-architecture sim of somador_tb is
+architecture tb of somador_tb is
 
     constant N_BITS : positive := 8;
     constant passo  : time := 20 ns;
@@ -57,4 +57,4 @@ begin
         wait;
     end process;
 
-end sim;
+end tb;
