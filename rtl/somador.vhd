@@ -2,7 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity somador_generico is
+entity somador is
     generic (
         N : positive := 8
     );
@@ -11,10 +11,11 @@ entity somador_generico is
         y : in  std_logic_vector(N-1 downto 0);
         r : out std_logic_vector(N-1 downto 0)
     );
-end somador_generico;
+end somador;
 
-architecture rtl of somador_generico is
+architecture rtl of somador is
 begin
     r <= std_logic_vector(signed(x) + signed(y));
 
 end rtl;
+
