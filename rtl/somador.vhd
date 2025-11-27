@@ -4,12 +4,12 @@ use ieee.numeric_std.all;
 
 entity somador is
     generic (
-        N : positive := 8
+        N: positive := 8
     );
     port (
-        x : in  std_logic_vector(N-1 downto 0);
-        y : in  std_logic_vector(N-1 downto 0);
-        r : out std_logic_vector(N-1 downto 0)
+        x: in  std_logic_vector(N-1 downto 0);
+        y: in  std_logic_vector(N-1 downto 0);
+        r: out std_logic_vector(N-1 downto 0)
     );
 end somador;
 
@@ -18,4 +18,5 @@ begin
     r <= std_logic_vector(signed(x) + signed(y));
 
 end rtl;
+
 
