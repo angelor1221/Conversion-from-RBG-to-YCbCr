@@ -18,7 +18,7 @@ architecture tb of registrador_tb is
 
 begin
 
-    DUV: entity work.registrador_generico 
+    DUV: entity work.registrador 
         generic map (
             N => N_BITS
         )
