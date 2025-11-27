@@ -2,7 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity registrador_generico is
+entity registrador is
     generic (
         N : positive := 8
     );
@@ -12,9 +12,9 @@ entity registrador_generico is
         d   : in  std_logic_vector(N-1 downto 0); 
         q   : out std_logic_vector(N-1 downto 0)  
     );
-end registrador_generico;
+end registrador;
 
-architecture rtl of registrador_generico is
+architecture rtl of registrador is
     signal q_reg : std_logic_vector(N-1 downto 0);
 begin
     process(clk)
@@ -28,3 +28,4 @@ begin
 
     q <= q_reg;
 end rtl;
+
