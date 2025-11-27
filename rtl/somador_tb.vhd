@@ -16,7 +16,7 @@ architecture tb of somador_tb is
 
 begin
 
-    duv: entity work.somador_generico
+    duv: entity work.somador
         generic map (
             N => N_BITS
         )
