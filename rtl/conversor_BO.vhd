@@ -143,7 +143,7 @@ begin
         if v_soma_signed < 0 then
             res_cortado <= (others => '0');
         elsif v_soma_signed > MAX_VAL then
-				res_cortado <= std_logic_vector(to_signed(MAX_VAL,N));
+				res_cortado <= std_logic_vector(to_unsigned(MAX_VAL,N));
         else
             res_cortado <= soma_final(N-1 downto 0);
         end if;
