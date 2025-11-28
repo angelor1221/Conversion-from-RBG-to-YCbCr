@@ -105,5 +105,7 @@ begin
           i_comandos.SCr <= '0';
           i_comandos.stage <= "11";
           i_comandos.cRGB <= '0';
+        end case;
+    end process LS;
 
 end architecture behavior;
