@@ -1,11 +1,14 @@
-arrumar esse codigo 
+
 {
     "grupo": {
-        "nome": "dupla X",
+        "nome": "AP3-02208A-Grupo-B",
         "alunos": [
-          {"nome": "Aluno 1", "matricula": "1234"},
-          {"nome": "Aluno 2", "matricula": "5678"}
-        ]
+          {"nome": "Ângelo Renostro Remus", "matricula": "25102943"},
+          {"nome": "Bruno Ricardo Seixas", "matricula": "18104532"},
+          {"nome": "Guilherme Cândido Barreiros", "matricula": "24100580"},
+          {"nome": "Guilherme Sant'Ana Silva", "matricula": "25100500"},
+          {"nome": "Gustavo Parucker Lueders", "matricula": "25100501"},
+          {"nome": "Lucas Fernandes Bigolin", "matricula": "25100487"}
     },
     "quartus": {
         "os": "Ubuntu (imagem Quartus II)",
@@ -16,12 +19,12 @@ arrumar esse codigo
         }
     },
     "utilizacao": {
-        "total combinational functions": 123,
-        "dedicated logic registers": 12,
-        "total pins": 5
+        "total combinational functions": 533,
+        "dedicated logic registers": 46,
+        "total pins": 54
     },
     "atraso": {
-        "Fmax": 2.5,
+        "Fmax": 56.67,
         "unidade": "MHz"
     }
 }
