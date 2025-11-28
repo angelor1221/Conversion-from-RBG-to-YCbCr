@@ -27,7 +27,7 @@ begin
     reg_state: process(clk, rst_a)
     begin
         if(reset = '1') then
-            current_state <= S0;
+            current_state <= Init;
         elsif(rising_edge(clk)) then
             current_state <= next_state;
         end if;
