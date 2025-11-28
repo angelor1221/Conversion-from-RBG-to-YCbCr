@@ -84,7 +84,7 @@ begin
         port map (X  => reg_g_conc, Y1 => y1_g, Y2 => y2_g, Y3 => y3_g,
                  Y4 => y4_g, Y5 => y5_g, Y6 => y6_g);
 
-    spiral_b: entity work.spiral_block_r(rtl)
+    spiral_b: entity work.spiral_block_b(rtl)
         generic map (N => N+1)
         port map (X  => reg_b_conc, Y1 => y1_b, Y2 => y2_b, Y3 => y3_b,
                  Y4 => y4_b, Y5 => y5_b, Y6 => y6_b);
