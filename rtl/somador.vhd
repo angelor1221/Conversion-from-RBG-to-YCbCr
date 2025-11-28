@@ -1,0 +1,20 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity somador is
+    generic (
+        N: positive := 10
+    );
+    port (
+        x: in  std_logic_vector(N-1 downto 0);
+        y: in  std_logic_vector(N-1 downto 0);
+        r: out std_logic_vector(N-1 downto 0)
+    );
+end somador;
+
+architecture rtl of somador is
+begin
+    r <= std_logic_vector(signed(x) + signed(y));
+
+end rtl;
