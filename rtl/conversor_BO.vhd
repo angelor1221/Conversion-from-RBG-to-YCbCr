@@ -26,6 +26,9 @@ architecture rtl of conversor_BO is
 
     -- saidas dos registradores de entrada
     signal reg_r, reg_g, reg_b: std_logic_vector(N-1 downto 0);
+
+    -- valores concatenados com 9 '0's a esquerda
+    signal reg_r_conc, reg_g_conc, reg_b_conc: std_logic_vector(N+8 downto 0);
     
     -- tamanho da constante zero que preenche as entradas não utilizadas
     signal zero: std_logic_vector(N_ext-1 downto 0);
@@ -64,6 +67,12 @@ begin
     reg_entrada_b: entity work.registrador(rtl)  
         generic map (N => N)
         port map (clk => clk, ld => i_comandos.cRGB, d => B, q => reg_b);
+
+    reg_r_conc <= "000000000" & reg_r;
+        
+    reg_g_conc <= "000000000" & reg_g;
+        
+    reg_b_conc <= "000000000" & reg_r;
 
     
     -- concatenação do seletor: bit sel (MSB) + stage (2 bits LSB)
