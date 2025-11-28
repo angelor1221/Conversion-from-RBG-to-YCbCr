@@ -58,8 +58,7 @@ begin
 
     -- Passo 3: Atribuição das saídas (Bit Slicing / Divisão por 1024)
     -- Pegamos os bits 41 até 10, o que descarta os 10 bits inferiores.
-        17 DOWNTO 0
-        27 DOWNTO 10
+    
     Y1 <= w217(N+19 downto N+2);
     Y2 <= w117_neg(N+19 downto N+2);
     Y3 <= w512(N+19 downto N+2);
