@@ -17,7 +17,7 @@ entity conversorBC is
     );
 end entity conversorBC;
 
-architecture behavior of multiplier_bc is
+architecture behavior of conversorBC is
     type estados_t is (Init, Load, Y, Cb, Cr, Res);
     signal current_state, next_state: estados_t;
 
