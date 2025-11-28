@@ -7,8 +7,8 @@ entity mux8para1 is
     );
     port (
         sel: in  std_logic_vector(2 downto 0);
-        e0, e1, e2, e3, e4, e5, e6, e7: in  std_logic_vector(N-1 downto 0);
-        y: out std_logic_vector(N-1 downto 0)
+        e0, e1, e2, e3, e4, e5, e6, e7: in  std_logic_vector(N+8 downto 0);
+        y: out std_logic_vector(N+8 downto 0)
     );
 end entity mux8para1;
 
