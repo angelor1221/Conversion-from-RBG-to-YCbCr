@@ -25,7 +25,7 @@ begin
 
     -- carga e reset do registrador de estado;
     
-    reg_state: process(clk, rst_a)
+    reg_state: process(clk, reset)
     begin
         if(reset = '1') then
             current_state <= Init;
