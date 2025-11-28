@@ -97,7 +97,7 @@ begin
                 cb_exp := calc_term(r_in, R_Cb_709) + calc_term(g_in, G_Cb_709) + calc_term(b_in, B_Cb_709) + offset;
                 cr_exp := calc_term(r_in, R_Cr_709) + calc_term(g_in, G_Cr_709) + calc_term(b_in, B_Cr_709) + offset;
             else
-                y_exp  := calc_term(r_in, R_Y_2020)  + calc_term(g_in, G_Y_2020)  + calc_term(b_int, B_Y_2020);
+                y_exp  := calc_term(r_in, R_Y_2020)  + calc_term(g_in, G_Y_2020)  + calc_term(b_in, B_Y_2020);
                 cb_exp := calc_term(r_in, R_Cb_2020) + calc_term(g_in, G_Cb_2020) + calc_term(b_in, B_Cb_2020) + offset;
                 cr_exp := calc_term(r_in, R_Cr_2020) + calc_term(g_in, G_Cr_2020) + calc_term(b_in, B_Cr_2020) + offset;
             end if;
@@ -137,7 +137,7 @@ begin
                 cb_exp := calc_term(r_in, R_Cb_709) + calc_term(g_in, G_Cb_709) + calc_term(b_in, B_Cb_709) + offset;
                 cr_exp := calc_term(r_in, R_Cr_709) + calc_term(g_in, G_Cr_709) + calc_term(b_in, B_Cr_709) + offset;
             else
-                y_exp  := calc_term(r_in, R_Y_2020)  + calc_term(g_in, G_Y_2020)  + calc_term(b_int, B_Y_2020);
+                y_exp  := calc_term(r_in, R_Y_2020)  + calc_term(g_in, G_Y_2020)  + calc_term(b_in, B_Y_2020);
                 cb_exp := calc_term(r_in, R_Cb_2020) + calc_term(g_in, G_Cb_2020) + calc_term(b_in, B_Cb_2020) + offset;
                 cr_exp := calc_term(r_in, R_Cr_2020) + calc_term(g_in, G_Cr_2020) + calc_term(b_in, B_Cr_2020) + offset;
             end if;
