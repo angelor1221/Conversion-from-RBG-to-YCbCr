@@ -45,9 +45,9 @@ architecture rtl of conversor_BO is
     -- resultado final
     signal res_cortado: std_logic_vector(N-1 downto 0);
 
-    signal y1_r, y2_r, y3_r, y4_r, y5_r, y6_r: (N_ext-1 downto 0);
-    signal y1_g, y2_g, y3_g, y4_g, y5_g, y6_g: (N_ext-1 downto 0);
-    signal y1_b, y2_b, y3_b, y4_b, y5_b, y6_b: (N_ext-1 downto 0);
+    signal y1_r, y2_r, y3_r, y4_r, y5_r, y6_r: std_logic_vector(N_ext-1 downto 0);
+    signal y1_g, y2_g, y3_g, y4_g, y5_g, y6_g: std_logic_vector(N_ext-1 downto 0);
+    signal y1_b, y2_b, y3_b, y4_b, y5_b, y6_b: std_logic_vector(N_ext-1 downto 0);
 
 begin
     
@@ -134,14 +134,15 @@ begin
     off_ajustado <= off_escolhido(N-1 downto 0); 
 
     somador_final_offset: entity work.somador(rtl)  
-        generic map (N => N_ext)
+        generic map (N => N)
         port map (x => soma_total, y => off_ajustado, r => soma_final);
 
 
     -- saturação 
     process(soma_final)
         variable v_soma_signed : signed(N-1 downto 0);
-        variable v_inteiro : integer;
+        constant MAX_VAL : integer := (2**N) - 1;
+        --variable v_inteiro : integer;
     begin
         v_soma_signed := signed(soma_final);
         
@@ -150,10 +151,10 @@ begin
 
         if v_soma_signed < 0 then
             res_cortado <= (others => '0');
-        elsif v_soma_signed > 255 then
+        elsif v_soma_signed > MAX_VAL then
             res_cortado <= (others => '1');
         else
-            res_cortado <= std_logic_vector(to_unsigned(v_inteiro, N));
+            res_cortado <= std_logic_vector(to_unsigned(v_soma_signed, N));
         end if;
     end process;
 
