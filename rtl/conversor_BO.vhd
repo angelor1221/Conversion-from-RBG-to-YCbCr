@@ -67,7 +67,7 @@ begin
         
     reg_g_conc <= "00" & reg_g;
         
-    reg_b_conc <= "00" & reg_r;
+    reg_b_conc <= "00" & reg_b;
 
     -- blocos spiral de R, G e B respectivamente
 
