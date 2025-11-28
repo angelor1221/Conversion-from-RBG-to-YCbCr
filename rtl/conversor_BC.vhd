@@ -57,6 +57,7 @@ begin
                     next_state <= Init;
                 else
                     next_state <= Res;
+                end if;
           end case;
     end process LPE;
 
