@@ -31,7 +31,7 @@ architecture rtl of conversor_BO is
     signal reg_r_conc, reg_g_conc, reg_b_conc: std_logic_vector(N+8 downto 0);
     
     -- tamanho da constante zero que preenche as entradas não utilizadas
-    signal zero: std_logic_vector(N_ext-1 downto 0);
+    signal zero: std_logic_vector(N_ext-1 downto 0) := (others => '0');
 
     -- saidas dos muxes 8:1
     signal sai_mux_r, sai_mux_g, sai_mux_b: std_logic_vector(N_ext-1 downto 0);
@@ -50,6 +50,10 @@ architecture rtl of conversor_BO is
 
     -- resultado final
     signal res_cortado: std_logic_vector(N-1 downto 0);
+
+    signal y1_r, y2_r, y3_r, y4_r, y5_r, y6_r: (N_ext-1 downto 0);
+    signal y1_g, y2_g, y3_g, y4_g, y5_g, y6_g: (N_ext-1 downto 0);
+    signal y1_b, y2_b, y3_b, y4_b, y5_b, y6_b: (N_ext-1 downto 0);
 
 begin
     
@@ -74,28 +78,45 @@ begin
         
     reg_b_conc <= "000000000" & reg_r;
 
+    -- blocos spiral de R, G e B respectivamente
+
+    spiral_r: entity work.spiral_block_r(rtl)
+        generic map (N => N_ext)
+        port map (X  => reg_r_conc, Y1 => y1_r, Y2 => y2_r, Y3 => y3_r,
+                 Y4 => y4_r, Y5 => y5_r, Y6 => y6_r);
+
+    spiral_g: entity work.spiral_block_g(rtl)
+        generic map (N => N_ext)
+        port map (X  => reg_g_conc, Y1 => y1_g, Y2 => y2_g, Y3 => y3_g,
+                 Y4 => y4_g, Y5 => y5_g, Y6 => y6_g);
+
+    spiral_b: entity work.spiral_block_r(rtl)
+        generic map (N => N_ext)
+        port map (X  => reg_b_conc, Y1 => y1_b, Y2 => y2_b, Y3 => y3_b,
+                 Y4 => y4_b, Y5 => y5_b, Y6 => y6_b);
     
     -- concatenação do seletor: bit sel (MSB) + stage (2 bits LSB)
     seletor_mux <= sel & i_comandos.stage;
 
-    -- obs: não fiz a parte dos spirals, então deixei tudo em zero
+    -- muxes para escolher valor correto da multiplicação
+    
     mux_canal_r: entity work.mux8para1(rtl)  
         generic map (N => N_ext)
         port map (sel => seletor_mux, y => sai_mux_r,
-                  e0 => zero, e1 => zero, e2 => zero, e3 => zero,
-                  e4 => zero, e5 => zero, e6 => zero, e7 => zero);
+                  e0 => y1_r, e1 => y2_r, e2 => y3_r, e3 => zero,
+                  e4 => y4_r, e5 => y5_r, e6 => y6_r, e7 => zero);
 
     mux_canal_g: entity work.mux8para1(rtl)  
         generic map (N => N_ext)
         port map (sel => seletor_mux, y => sai_mux_g,
-                  e0 => zero, e1 => zero, e2 => zero, e3 => zero,
-                  e4 => zero, e5 => zero, e6 => zero, e7 => zero);
+                  e0 => y1_g, e1 => y2_g, e2 => y3_g, e3 => zero,
+                  e4 => y4_g, e5 => y5_g, e6 => y6_g, e7 => zero);
 
     mux_canal_b: entity work.mux8para1(rtl)  
         generic map (N => N_ext)
         port map (sel => seletor_mux, y => sai_mux_b,
-                  e0 => zero, e1 => zero, e2 => zero, e3 => zero,
-                  e4 => zero, e5 => zero, e6 => zero, e7 => zero);
+                  e0 => y1_b, e1 => y2_b, e2 => y3_b, e3 => zero,
+                  e4 => y4_b, e5 => y5_b, e6 => y6_b, e7 => zero);
 
 
     -- soma em cascata
