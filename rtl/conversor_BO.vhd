@@ -3,12 +3,6 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use work.conversor_pkg.all;
 
--- não consegui testar absolutamente nada enquanto fazia pq meu quartus tá bugado, 
--- ou seja, duvido n ter cagadas e n precisar de ajustes.  
--- além disso, falta a parte dos spirals. 
--- deixar esse código bom cabe aos amantes de vhdl - não faço parte dessa turma estranha.
--- depois apaguem esses comentários, tmj.
-
 entity conversor_BO is
     generic (
         N: positive := 8
