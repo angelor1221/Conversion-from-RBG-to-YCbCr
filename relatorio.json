@@ -9,7 +9,7 @@
           {"nome": "Guilherme Sant'Ana Silva", "matricula": "25100500"},
           {"nome": "Gustavo Parucker Lueders", "matricula": "25100501"},
           {"nome": "Lucas Fernandes Bigolin", "matricula": "25100487"}
-    },
+    }
     "quartus": {
         "os": "Ubuntu (imagem Quartus II)",
         "versao": "13.0.1 (completar)",
